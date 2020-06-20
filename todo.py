@@ -63,7 +63,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             index = indexes[0]
             row = index.row()
             status, text = self.model.todos[row]
-            self.model.todos[row] = (True, text)
+            self.model.todos[row] = (not status, text)
             self.model.dataChanged.emit(index, index)
             self.todoView.clearSelection()
             self.save()
